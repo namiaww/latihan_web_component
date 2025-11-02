@@ -3,29 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <title>Counter Components Demo</title>
+    
+    <script src="info-mahasiswa.js"></script>
+
     <script src="counter-display.js"></script>
     <script src="counter-controls.js"></script>
+    <script src="combined-counter.js"></script>
+    <script src="counter-display-b.js"></script>
+    <script src="counter-controls-b.js"></script>
+
 </head>
 <body style="font-family:sans-serif; display:flex; flex-direction:column; align-items:center; gap:10px; margin-top:30px;">
 
-    <!-- Komponen 1 -->
+    <info-mahasiswa nama="Nama Anda" nim="NIM Anda"></info-mahasiswa>
+
+    <hr style="width: 300px; border: none; border-top: 1px solid #ddd;">
+
     <counter-display id="display" title="Lorem Ipsum Title" value="99"></counter-display>
-    <!-- Komponen 2 -->
+    
     <counter-controls id="controls"></counter-controls>
+    
+    <combined-counter title="Lorem Ipsum Title" value="99"></combined-counter>
+
+    <counter-display-b id="displayB" title="Varian B Counter" value="10"></counter-display-b>
+    <counter-controls-b target="displayB"></counter-controls-b>
 
     <script>
         const display = document.getElementById('display');
         const controls = document.getElementById('controls');
         controls.addEventListener('count-change', e => {
-        display.count += e.detail.delta;
-    });
+            display.count += e.detail.delta;
+        });
     </script>
-    <script src="combined-counter.js"></script>
-    <combined-counter title="Lorem Ipsum Title" value="99"></combined-counter>
-
-    <!-- Varian B -->
-    <counter-display-b id="displayB" title="Varian B Counter" value="10"></counter-display-b>
-    <counter-controls-b target="displayB"></counter-controls-b>
 
 </body>
 </html>
